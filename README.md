@@ -5,6 +5,13 @@ This project implements an AXI to APB Bridge to enable seamless communication be
 # Contents
 * Introduction
 * Architecture
+* AXI to APB Bridge Flow
+* Synchronization Mechanism
+* Testbench
+* Simulation
+* Outputs
+* Future Enhancements
+* Conclusion
 
 # Introduction
 
@@ -27,3 +34,18 @@ The bridge consists of the following key modules:
 * Full and Empty Logic: Ensures proper flow control by managing FIFO status flags.
 
 ![Untitled drawing](https://github.com/user-attachments/assets/1f3c47eb-5ad0-4601-b298-19ae02c042f7)
+
+# AXI to APB Bridge Flow
+
+1. AXI Write Transaction:
+   * When an AXI write transaction is received, the bridge extracts the address and data.
+   * The address and lower 32 bits of data are stored in the FIFO buffer.
+   * The axi_wready signal is asserted when the FIFO has space available.
+2. FIFO Management:
+   * The FIFO buffer temporarily holds the transactions before they are processed by the APB interface.
+   * Gray-coded pointers are used for synchronization between AXI and APB clock domains.
+3. APB Read Transaction:
+   * When the APB interface is ready (apb_ready signal is high), data is read from the FIFO and written to the APB bus.
+   * The apb_wvalid signal is asserted during the transfer.
+  
+
