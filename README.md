@@ -4,6 +4,7 @@ This project implements an AXI to APB Bridge to enable seamless communication be
 
 # Contents
 * Introduction
+* Design
 * Architecture
 * AXI to APB Bridge Flow
 * Synchronization Mechanism
@@ -16,6 +17,31 @@ This project implements an AXI to APB Bridge to enable seamless communication be
 # Introduction
 
 The AXI to APB Bridge is designed to facilitate communication between an AXI bus and an APB bus. The AXI interface operates at a higher frequency (100MHz), whereas the APB interface runs at a lower frequency (50MHz). The bridge buffers transactions between the two domains using a FIFO structure, ensuring seamless data transfer despite clock domain differences.
+
+# Design
+
+The bridge is designed with the following characteristics:
+
+* AXI Interface: Operates at 100MHz, supporting burst transfers with a 64-bit data bus and a 32-bit address bus.
+  
+* APB Interface: Operates at 50MHz, with a 32-bit data bus and a 32-bit address bus.
+  
+* Clock Domain Crossing: Synchronization between AXI and APB domains using Gray code conversion and FIFO buffering.
+  
+* FIFO Depth: Configurable FIFO buffer to handle data transfer efficiently. The FIFO depth is determined based on system requirements and latency considerations. In this design, the FIFO depth is 64 entries, and each entry stores 32-bit data.
+  
+* Synchronization Mechanism: Uses binary to Gray and Gray to binary conversion before transferring over synchronizers to ensure safe data exchange.
+
+    | Feature | AXI Protocol| APB Protocol |
+    |----------|----------|----------|
+    | Clock Speed   | 100MHz  | 50MHz   |
+    | Data Bus Width   | 64-bit   | 32-bit   |
+    | Address Bus  | 32-bit   | 32-bit  |
+    | Transfer Type  | Burst  | Single   |
+    | Handshaking   | Complex  | Simple   |
+    | Performance   | High-speed   | Low-power   |
+    | Read/Write Ops | Concurrent   | Sequential   |
+
 
 # Architecture
 
