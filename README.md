@@ -74,4 +74,9 @@ The bridge consists of the following key modules:
    * When the APB interface is ready (apb_ready signal is high), data is read from the FIFO and written to the APB bus.
    * The apb_wvalid signal is asserted during the transfer.
   
+# Synchronization Mechanism
 
+Since AXI and APB operate in different clock domains, pointer synchronization is required:
+
+* Binary to Gray Code Conversion: Before synchronization, the write and read pointers are converted to Gray code to reduce metastability issues.
+* 
