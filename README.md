@@ -76,6 +76,8 @@ The bridge consists of the following key modules:
   
 # Synchronization Mechanism
 
+![Untitled drawing1](https://github.com/user-attachments/assets/66719499-f13f-48c9-b141-23569f136f2c)
+
 Since AXI and APB operate in different clock domains, pointer synchronization is required:
 
 * Binary to Gray Code Conversion: Before synchronization, the write and read pointers are converted to Gray code to reduce metastability issues.
@@ -87,6 +89,9 @@ Since AXI and APB operate in different clock domains, pointer synchronization is
 * Gray to Binary Code Conversion: After synchronization, the pointers are converted back to binary for proper FIFO operation.
 
 # Full & Empty Logic
+
+![Untitled drawing2](https://github.com/user-attachments/assets/a704a6b4-f3b4-4fa4-92b3-d804e857b8de)
+
 
 * FIFO Full Condition: The FIFO is full when the write pointer reaches the read pointer plus the FIFO depth.
 
