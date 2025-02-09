@@ -86,3 +86,23 @@ Since AXI and APB operate in different clock domains, pointer synchronization is
   
 * Gray to Binary Code Conversion: After synchronization, the pointers are converted back to binary for proper FIFO operation.
 
+# Full & Empty Logic
+
+* FIFO Full Condition: The FIFO is full when the write pointer reaches the read pointer plus the FIFO depth.
+
+* FIFO Empty Condition: The FIFO is empty when the read pointer matches the synchronized write pointer.
+
+# Testbench
+
+A SystemVerilog and Verilog testbench has been provided to verify the functionality of the AXI to APB Bridge. The testbench includes:
+
+* Clock and Reset Generation
+
+* AXI Write Transactions
+
+* FIFO Data Verification
+
+* APB Write Transactions
+
+* Assertions for Functional Coverage
+
