@@ -79,4 +79,10 @@ The bridge consists of the following key modules:
 Since AXI and APB operate in different clock domains, pointer synchronization is required:
 
 * Binary to Gray Code Conversion: Before synchronization, the write and read pointers are converted to Gray code to reduce metastability issues.
-* 
+  
+* Write Pointer Synchronizer: Ensures the write pointer from the AXI domain is correctly interpreted in the APB domain.
+  
+* Read Pointer Synchronizer: Ensures the read pointer from the APB domain is correctly interpreted in the AXI domain.
+  
+* Gray to Binary Code Conversion: After synchronization, the pointers are converted back to binary for proper FIFO operation.
+
