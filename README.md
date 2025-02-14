@@ -111,3 +111,9 @@ A SystemVerilog and Verilog testbench has been provided to verify the functional
 
 * Assertions for Functional Coverage
 
+# Output
+![Screenshot 2025-02-14 131325](https://github.com/user-attachments/assets/33c46bfc-b641-492d-bf54-46cd22f64fb4)
+![Screenshot 2025-02-14 131356](https://github.com/user-attachments/assets/beb7ff18-1e06-4838-8dc4-5cabdc0d23ad)
+
+
+
